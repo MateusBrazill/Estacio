@@ -1,6 +1,12 @@
 //Aluno: Mateus Brazil de Oliveira
 //Matricula: 202003447031
 
+//Questão 1
+/*
+Criar um circuito e o respectivo programa em C para aquisição de dados com a 
+plataforma Arduino no simulador Tinkercad.
+*/
+
 #include<LiquidCrystal.h>
 
 #define tempSensor A1
@@ -26,7 +32,7 @@ void loop()
   	soilSensorRaw = analogRead(soilSensor);
    	
   	parsedTemp = (temperatureRaw*0.004882814-0.5)*100;
-  	parsedSoilSensor = ((soilSensorRaw/1024.00)*100);
+  	parsedSoilSensor = map(soilSensorRaw, 0, 1024, 0, 100);
 	
   	//Serial print
   	Serial.print("Temp C:");
